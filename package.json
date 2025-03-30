@@ -1,0 +1,27 @@
+{
+  "name": "@ataye/client-server-vite-tailwind",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vite",
+    "tailwind",
+    "express",
+    "boilerplate",
+    "node",
+    "caprover",
+    "react"
+  ],
+  "author": "Ataye",
+  "license": "ISC",
+  "description": "Boilerplate for an express client-server application using Vite and Tailwind CSS",
+  "bin": {
+    "client-server-vite-tailwind": "./bin/create.js"
+  },
+  "dependencies": {
+    "fs-extra": "^11.1.1",
+    "inquirer": "^12.5.0"
+  }
+}

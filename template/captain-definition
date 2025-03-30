@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 2,
+  "dockerfileLines": [
+    "FROM library/node:alpine", 
+    "ENV NODE_ENV production",
+    "ENV PORT 80",
+    "COPY ./ /usr/src/app",
+
+    "WORKDIR /usr/src/app",
+    "RUN npm install --omit=dev && npm cache clean --force",
+
+
+    "EXPOSE 80",
+
+    "# Start the application",
+    "CMD [ \"npm\", \"run\", \"start\" ]",
+
+    "# Optional: Uncomment the following line to run multiple start commands in parallel",
+    "# CMD [ \"npm\", \"run\", \"start-all\" ]"
+  ]
+}

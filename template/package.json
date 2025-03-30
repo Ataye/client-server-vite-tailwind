@@ -1,0 +1,26 @@
+{
+  "name": "template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "cd client && npm run dev",
+    "server": "cd server && npm run watch",
+    "app": "concurrently --kill-others \"npm:server\" \"npm:client\"",
+    
+    "build-client": "cd client && npm run build && cd ..",
+    "caprover-pack-server": "tar --exclude=\"node_modules\" --exclude=\"NOTES.txt\" --exclude=\"logs\" --exclude=\"client\" -cv -f deploy.tar captain-definition -C server *",
+    "caprover-deploy": "caprover deploy -t ./deploy.tar --default",
+    "caprover-deploy-new": "caprover deploy -t ./deploy.tar",
+    "deploy": "npm run build-client && npm run caprover-pack-server && npm run caprover-deploy",
+    "deploy-new": "npm run build-client && npm run caprover-pack-server && npm run caprover-deploy-new"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.1.0",
+    "tar": "^7.4.3"
+  }
+}
