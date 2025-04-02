@@ -6,4 +6,13 @@ import flowbiteReact from "flowbite-react/plugin/vite";
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss(), flowbiteReact()],
+  envPrefix: 'WEBUI_',
+  server: {
+    proxy: {
+      "/users":{
+        target: "http://localhost:3000",
+        changeOrigin: true,
+      },
+    },
+  }
 })
